@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table table-zebra">
+    <thead>
+        <th>Firstname</th>
+        <th>Middlename</th>
+        <th>birthdate</th>
+    </thead>
+    <tbody>
+        {% for dev in devs %}
+        <tr>
+            <td hx-get="{% url 'htmxget' %}" hx-trigger="load delay:5s" ></td>
+            <td>{{ dev.firstname }}</td
+            <td>{{ dev.middlename }}</td>
+            <td>{{ dev.birthdate }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
+
+
+{% block jscript %}
+    <script>
+
+        console.log('hello');
+    </script>
+
+{% endblock jscript %}
